@@ -1,4 +1,23 @@
 {
+    "name": "antonmarin/amocrm",
+    "description": "Library to work with AmoCrm (https://amocrm.ru)",
+    "keywords": ["amocrm"],
+    "type": "library",
+    "authors": [
+        {
+            "name": "Anton Marin",
+            "email": "antonaryo85@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"amocrm\\": ""}
+    },
+    "autoload-dev": {
+        "psr-4": {"amocrm\\tests\\": "tests/"}
+    },
+    "require": {
+        "php": ">=5.4"
+    },
     "require-dev": {
         "codeception/codeception": "^2.1"
     }
