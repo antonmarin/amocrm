@@ -1,9 +1,14 @@
 <?php
 
-
 namespace amocrm\gates;
 
+use amocrm\Gate;
 
+/**
+ * Шлюз звонков
+ *
+ * @package antonmarin\amocrm
+ */
 class Calls extends Gate
 {
     /**
@@ -12,8 +17,8 @@ class Calls extends Gate
      * @return string
      * @example accounts/current
      */
-    protected function getUri()
+    protected function getUrl()
     {
-        // TODO: Implement getUri() method.
+        // TODO: Implement getUrl() method.
     }
 }

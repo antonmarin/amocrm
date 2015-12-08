@@ -1,9 +1,13 @@
 <?php
 
-
 namespace amocrm\gates;
 
+use amocrm\Gate;
 
+/**
+ * Class Leads
+ * @package antonmarin\amocrm
+ */
 class Leads extends Gate
 {
     /**
@@ -12,8 +16,8 @@ class Leads extends Gate
      * @return string
      * @example accounts/current
      */
-    protected function getUri()
+    protected function getUrl()
     {
-        // TODO: Implement getUri() method.
+        // TODO: Implement getUrl() method.
     }
 }

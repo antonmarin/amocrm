@@ -1,12 +1,12 @@
 <?php
 
-namespace amocrm\gates;
+namespace amocrm;
 
 /**
  * Базовый класс шлюза для работы с сущностью
  *
  * Шлюз реализует интерфейс, определенный в {@link https://developers.amocrm.ru/rest_api/ API}
- * @package antonmarin\AmoCrm
+ * @package antonmarin\amocrm
  */
 abstract class Gate
 {
@@ -20,8 +20,16 @@ abstract class Gate
      *
      * @param $crm \amocrm\AmoCrm
      */
-    public function __constructor($crm){
+    public function __construct($crm){
         $this->crm = $crm;
+    }
+
+    /**
+     * @return AmoCrm
+     */
+    public function getCrm()
+    {
+        return $this->crm;
     }
 
     /**
@@ -30,5 +38,5 @@ abstract class Gate
      * @return string
      * @example accounts/current
      */
-    abstract protected function getUri();
+    abstract protected function getUrl();
 }

@@ -2,10 +2,16 @@
 
 namespace amocrm\gates;
 
+use amocrm\Gate;
+
+/**
+ * Class Contacts
+ * @package antonmarin\amocrm
+ */
 class Contacts extends Gate
 {
-    protected function getUri()
+    protected function getUrl()
     {
-        // TODO: Implement getUri() method.
+        // TODO: Implement getUrl() method.
     }
 }
