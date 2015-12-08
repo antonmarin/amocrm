@@ -1,60 +1,63 @@
 <?php
 
-namespace amocrm\tests;
+namespace amocrm\tests\unit;
 
 use amocrm\AmoCrm;
+use Codeception\TestCase\Test;
+use Codeception\Util\Stub;
 
 /**
  * Тест основного класса
  */
-class AmoCrmTest extends \Codeception\TestCase\Test
+class AmoCrmTest extends Test
 {
+    /**
+     * @var \amocrm\AmoCrm
+     */
+    protected $crm;
+
+    protected function _before(){
+        $this->crm = Stub::make('\amocrm\AmoCrm');
+    }
+
     /**
      * new AmoCrm($subdomain, $email, $key)
      */
     public function testConstructor(){
-        $amoCrm = new AmoCrm('subdomain', 'email@email.com', 'apikey');
+        $amoCrm = new AmoCrm('subdomain', 'email@email.com', 'apiKey');
         $this->assertInstanceOf('\amocrm\AmoCrm', $amoCrm);
     }
 
     public function testGetAccounts(){
-        $amoCrm = new AmoCrm('subdomain', 'email@email.com', 'apikey');
-        $this->assertInstanceOf('\amocrm\gates\Accounts',$amoCrm->getAccounts());
+        $this->assertInstanceOf('\amocrm\gates\Accounts',$this->crm->getAccounts());
     }
 
     public function testGetContacts(){
-        $amoCrm = new AmoCrm('subdomain', 'email@email.com', 'apikey');
-        $this->assertInstanceOf('\amocrm\gates\Contacts',$amoCrm->getContacts());
+        $this->assertInstanceOf('\amocrm\gates\Contacts',$this->crm->getContacts());
     }
 
     public function testGetLeads(){
-        $amoCrm = new AmoCrm('subdomain', 'email@email.com', 'apikey');
-        $this->assertInstanceOf('\amocrm\gates\Leads',$amoCrm->getLeads());
+        $this->assertInstanceOf('\amocrm\gates\Leads',$this->crm->getLeads());
     }
 
     public function testGetCompany(){
-        $amoCrm = new AmoCrm('subdomain', 'email@email.com', 'apikey');
-        $this->assertInstanceOf('\amocrm\gates\Company',$amoCrm->getCompany());
+        $this->assertInstanceOf('\amocrm\gates\Company',$this->crm->getCompany());
     }
 
     public function testGetTasks(){
-        $amoCrm = new AmoCrm('subdomain', 'email@email.com', 'apikey');
-        $this->assertInstanceOf('\amocrm\gates\Tasks',$amoCrm->getTasks());
+        $this->assertInstanceOf('\amocrm\gates\Tasks',$this->crm->getTasks());
     }
 
     public function testGetNotes(){
-        $amoCrm = new AmoCrm('subdomain', 'email@email.com', 'apikey');
-        $this->assertInstanceOf('\amocrm\gates\Notes',$amoCrm->getNotes());
+        $this->assertInstanceOf('\amocrm\gates\Notes',$this->crm->getNotes());
     }
 
     public function testGetFields(){
-        $amoCrm = new AmoCrm('subdomain', 'email@email.com', 'apikey');
-        $this->assertInstanceOf('\amocrm\gates\Fields',$amoCrm->getFields());
+        $this->assertInstanceOf('\amocrm\gates\Fields',$this->crm->getFields());
     }
 
     public function testGetCalls(){
-        $amoCrm = new AmoCrm('subdomain', 'email@email.com', 'apikey');
-        $this->assertInstanceOf('\amocrm\gates\Calls',$amoCrm->getCalls());
+        $this->assertInstanceOf('\amocrm\gates\Calls',$this->crm->getCalls());
     }
 
     /**
