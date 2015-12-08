@@ -13,7 +13,11 @@ class AccountsTest extends Test
 {
     public function testGetCurrent()
     {
-        $crm = Stub::make('\amocrm\AmoCrm', ['sendRequest' => ['account' => [], 'server_time' => time()]]);
+        /** @var \amocrm\AmoCrm $crm */
+        $crm = Stub::make(
+            '\amocrm\AmoCrm',
+            ['sendRequest' => ['account' => [], 'server_time' => time()]]
+        );
         $accounts = new Accounts($crm);
         $this->assertInstanceOf('\amocrm\entities\Account', $accounts->getCurrent());
     }
