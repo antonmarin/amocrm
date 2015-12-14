@@ -21,7 +21,7 @@ class Accounts extends Gate
      */
     public function getCurrent()
     {
-        $result = $this->getCrm()->sendRequest('GET', $this->getUrl());
+        $result = $this->getCrm()->sendRequest('GET', $this->getUrl().'/current');
         return new Account($result['account']);
     }
 
@@ -30,7 +30,7 @@ class Accounts extends Gate
      */
     protected function getUrl()
     {
-        return 'accounts/current';
+        return 'accounts';
     }
 
 }

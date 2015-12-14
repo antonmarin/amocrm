@@ -8,6 +8,8 @@ use Codeception\Util\Stub;
 
 /**
  * Тестируем шлюз accounts
+ *
+ * @package antonmarin\amocrm
  */
 class AccountsTest extends Test
 {
