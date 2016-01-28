@@ -27,7 +27,7 @@ abstract class Gate
     /**
      * @return AmoCrm
      */
-    public function getCrm()
+    protected function getCrm()
     {
         return $this->crm;
     }
