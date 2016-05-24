@@ -1,13 +1,16 @@
 Библиотека для работы с AmoCrm
 ==============================
-
-[![Build Status](https://travis-ci.org/antonmarin/amocrm.svg?branch=master)](https://travis-ci.org/antonmarin/amocrm)
-
 Главная задача библиотеки - максимальная приближенность к официальной документации.
 Метод, описанный в официальной документации как:
 `contacts/list`
 реализован в библиотеке как:
 `$amocrm->getContacts()->getList();`
+
+[![Build Status](https://travis-ci.org/antonmarin/amocrm.svg?branch=master)](https://travis-ci.org/antonmarin/amocrm)
+[![Latest Stable Version](https://poser.pugx.org/antonmarin/amocrm/v/stable)](https://packagist.org/packages/antonmarin/amocrm)
+[![Latest Unstable Version](https://poser.pugx.org/antonmarin/amocrm/v/unstable)](https://packagist.org/packages/antonmarin/amocrm)
+[![Total Downloads](https://poser.pugx.org/antonmarin/amocrm/downloads)](https://packagist.org/packages/antonmarin/amocrm)
+[![License](https://poser.pugx.org/antonmarin/amocrm/license)](https://packagist.org/packages/antonmarin/amocrm)
 
 Пример использования
 --------------------
