@@ -12,6 +12,7 @@
 [![Total Downloads](https://poser.pugx.org/antonmarin/amocrm/downloads)](https://packagist.org/packages/antonmarin/amocrm)
 [![License](https://poser.pugx.org/antonmarin/amocrm/license)](https://packagist.org/packages/antonmarin/amocrm)
 [![Dependency Status](https://www.versioneye.com/php/antonmarin:amocrm/dev-master/badge.png)](https://www.versioneye.com/php/antonmarin:amocrm/dev-master)
+[![Reference Status](https://www.versioneye.com/php/antonmarin:amocrm/reference_badge.svg)](https://www.versioneye.com/php/antonmarin:amocrm/references)
 
 Пример использования
 --------------------
