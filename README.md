@@ -11,6 +11,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/antonmarin/amocrm/v/unstable)](https://packagist.org/packages/antonmarin/amocrm)
 [![Total Downloads](https://poser.pugx.org/antonmarin/amocrm/downloads)](https://packagist.org/packages/antonmarin/amocrm)
 [![License](https://poser.pugx.org/antonmarin/amocrm/license)](https://packagist.org/packages/antonmarin/amocrm)
+[![Dependency Status](https://www.versioneye.com/php/antonmarin:amocrm/dev-master/badge.png)](https://www.versioneye.com/php/antonmarin:amocrm/dev-master)
 
 Пример использования
 --------------------
