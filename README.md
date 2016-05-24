@@ -13,6 +13,9 @@
 [![Dependency Status](https://www.versioneye.com/php/antonmarin:amocrm/dev-master/badge.png)](https://www.versioneye.com/php/antonmarin:amocrm/dev-master)
 [![Reference Status](https://www.versioneye.com/php/antonmarin:amocrm/reference_badge.svg)](https://www.versioneye.com/php/antonmarin:amocrm/references)
 [![License](https://poser.pugx.org/antonmarin/amocrm/license)](https://packagist.org/packages/antonmarin/amocrm)
+[![Code Climate](https://codeclimate.com/github/antonmarin/amocrm/badges/gpa.svg)](https://codeclimate.com/github/antonmarin/amocrm)
+[![Test Coverage](https://codeclimate.com/github/antonmarin/amocrm/badges/coverage.svg)](https://codeclimate.com/github/antonmarin/amocrm/coverage)
+[![Issue Count](https://codeclimate.com/github/antonmarin/amocrm/badges/issue_count.svg)](https://codeclimate.com/github/antonmarin/amocrm)
 
 Пример использования
 --------------------
