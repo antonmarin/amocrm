@@ -7,7 +7,7 @@
 `$amocrm->getContacts()->getList();`
 
 [![Build Status](https://travis-ci.org/antonmarin/amocrm.svg?branch=master)](https://travis-ci.org/antonmarin/amocrm)
-[![Dependency Status](https://www.versioneye.com/php/antonmarin:amocrm/dev-master/badge.png)](https://www.versioneye.com/php/antonmarin:amocrm/dev-master)
+[![Dependency Status](https://www.versioneye.com/php/antonmarin:amocrm/dev-master/badge)](https://www.versioneye.com/php/antonmarin:amocrm/dev-master)
 [![Latest Stable Version](https://poser.pugx.org/antonmarin/amocrm/v/stable)](https://packagist.org/packages/antonmarin/amocrm)
 
 [![Code Climate](https://codeclimate.com/github/antonmarin/amocrm/badges/gpa.svg)](https://codeclimate.com/github/antonmarin/amocrm)
