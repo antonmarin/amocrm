@@ -12,10 +12,12 @@ class AccountsTest extends PHPUnit_Framework_TestCase
     public function testGetCurrent()
     {
         /** @var \amocrm\AmoCrm $crm */
-//        $crm = Stub::make(
-//            '\amocrm\AmoCrm',
-//            ['sendRequest' => ['account' => [], 'server_time' => time()]]
-//        );
+        $crm = $this->getMockBuilder('\amocrm\AmoCrm')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $crm->method('sendRequest')
+            ->willReturn(['account' => [], 'server_time' => time()]);
+
         $accounts = new Accounts($crm);
         $this->assertInstanceOf('\amocrm\entities\Account', $accounts->getCurrent());
     }

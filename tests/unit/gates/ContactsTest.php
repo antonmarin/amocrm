@@ -12,7 +12,9 @@ class ContactsTest extends PHPUnit_Framework_TestCase
     }
 
     public function testGetList(){
-        //$gate = Stub::make('\amocrm\gates\Contacts');
+        $gate = $this->getMockBuilder('\amocrm\gates\Contacts')
+            ->disableOriginalConstructor()
+            ->getMock();
         $contacts = $gate->getList();
         $this->assertNotNull($contacts);
         foreach($contacts as $contact){

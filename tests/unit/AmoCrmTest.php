@@ -6,7 +6,7 @@ use phpunit\framework\TestCase;
 /**
  * Тест основного класса
  */
-class AmoCrmTest extends TestCase
+class AmoCrmTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var \amocrm\AmoCrm
@@ -15,7 +15,9 @@ class AmoCrmTest extends TestCase
 
     protected function setUp()
     {
-        $this->crm = $this->createMock('\amocrm\AmoCrm');
+        $this->crm = $this->getMockBuilder('\amocrm\AmoCrm')
+            ->disableOriginalConstructor()
+            ->getMock();
     }
 
     /**
