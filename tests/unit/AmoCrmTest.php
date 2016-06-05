@@ -1,7 +1,6 @@
 <?php
 
 use amocrm\AmoCrm;
-use phpunit\framework\TestCase;
 
 /**
  * Тест основного класса
@@ -27,11 +26,6 @@ class AmoCrmTest extends PHPUnit_Framework_TestCase
     {
         $amoCrm = new AmoCrm('subdomain', 'email@email.com', 'apiKey');
         $this->assertInstanceOf('\amocrm\AmoCrm', $amoCrm);
-    }
-
-    public function testConstructionShouldThrowExceptionIfAnyParamIsAbsent()
-    {
-
     }
 
     public function testGetAccounts()
