@@ -8,7 +8,7 @@ php:
 after_script:
   - vendor/bin/test-reporter --coverage-report build/logs/clover.xml
 addons:
-    code_climate:
-    
+  code_climate:
+
 install:
   - composer install
