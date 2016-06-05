@@ -10,5 +10,6 @@ after_script:
 addons:
     code_climate:
     
+        coverage_report: tests/logs/clover.xml
 install:
 - composer install
