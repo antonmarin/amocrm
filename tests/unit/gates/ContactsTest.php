@@ -7,15 +7,26 @@
  */
 class ContactsTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @var amocrm\gates\Contacts
+     */
+    protected $gate;
+
+    protected function setUp()
+    {
+        $this->gate = $this->getMockBuilder('\amocrm\gates\Contacts')
+            ->disableOriginalConstructor()
+            ->setMethods(null)
+            ->getMock();
+    }
+
     public function testSet(){
 
     }
 
     public function testGetList(){
-        $gate = $this->getMockBuilder('\amocrm\gates\Contacts')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $contacts = $gate->getList();
+
+        $contacts = $this->gate->getList();
         $this->assertNotNull($contacts);
         foreach($contacts as $contact){
             $this->assertInstanceOf('\amocrm\gates\Contacts', $contact);

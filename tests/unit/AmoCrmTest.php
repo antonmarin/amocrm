@@ -16,6 +16,7 @@ class AmoCrmTest extends PHPUnit_Framework_TestCase
     {
         $this->crm = $this->getMockBuilder('\amocrm\AmoCrm')
             ->disableOriginalConstructor()
+            ->setMethods(null)
             ->getMock();
     }
 
