@@ -3,7 +3,7 @@
 use amocrm\AmoCrm;
 
 /**
- * Тест основного класса
+ * Тест компонента
  */
 class AmoCrmTest extends PHPUnit_Framework_TestCase
 {
@@ -67,13 +67,5 @@ class AmoCrmTest extends PHPUnit_Framework_TestCase
     public function testGetCalls()
     {
         $this->assertInstanceOf('\amocrm\gates\Calls', $this->crm->getCalls());
-    }
-
-    /**
-     * При получении ошибки 429 - нужно секунду подождать
-     */
-    public function testTimeoutOn429()
-    {
-        // todo implement
     }
 }
