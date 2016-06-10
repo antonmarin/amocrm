@@ -21,7 +21,7 @@ class ContactsTest extends PHPUnit_Framework_TestCase
     }
 
     public function testSet(){
-
+        // todo implement
     }
 
     public function testGetList(){
@@ -34,6 +34,6 @@ class ContactsTest extends PHPUnit_Framework_TestCase
     }
 
     public function testGetLinks(){
-
+        // todo implement
     }
 }
