@@ -29,6 +29,11 @@ class AmoCrmTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\amocrm\AmoCrm', $amoCrm);
     }
 
+    public function testAuth()
+    {
+        // todo implement
+    }
+
     public function testGetAccounts()
     {
         $this->assertInstanceOf('\amocrm\gates\Accounts', $this->crm->getAccounts());

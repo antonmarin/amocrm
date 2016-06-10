@@ -12,9 +12,9 @@ use amocrm\gates\Notes;
 use amocrm\gates\Tasks;
 
 /**
- * Базовый класс
+ * Компонент
  *
- * Отвечает за соединение с AmoCrm: Авторизация и отравка запросов
+ * Отвечает за соединение с AmoCrm (Авторизация и отравка запросов) и получение шлюзов сущностей
  * Usage:
  * <pre>
  * $amocrm = new AmoCrm($subdomain, $email, $key);
