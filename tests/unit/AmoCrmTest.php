@@ -29,7 +29,17 @@ class AmoCrmTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\amocrm\AmoCrm', $amoCrm);
     }
 
-    public function testAuth()
+    public function testShouldAuthBeforeRequest()
+    {
+        // todo implement
+    }
+    
+    public function testShouldSendPost()
+    {
+        // todo implement
+    }
+
+    public function testShouldSendGet()
     {
         // todo implement
     }
