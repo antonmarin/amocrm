@@ -4,7 +4,7 @@ namespace amocrm\entities;
 
 use amocrm\Entity;
 
-class Contact extends Entity implements ContactInterface
+class Company extends Entity implements ContactInterface
 {
 
 }

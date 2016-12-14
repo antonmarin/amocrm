@@ -1,4 +1,5 @@
 <?php
+use amocrm\gates\Contacts;
 
 /**
  * Тестируем шлюз контактов
@@ -12,25 +13,24 @@ class ContactsTest extends PHPUnit_Framework_TestCase
 	 */
 	protected $gate;
 
-	protected function setUp()
-	{
-		$this->gate = $this->getMockBuilder('\amocrm\gates\Contacts')
-		                   ->disableOriginalConstructor()
-		                   ->setMethods(null)
-		                   ->getMock();
-	}
-
 	public function testSet()
 	{
 		// todo implement
 	}
 
-	public function testGetList()
+	public function testGetListShouldReturnModels()
 	{
-		$contacts = $this->gate->getList();
+        $crm = $this->getMockBuilder('\amocrm\AmoCrm')
+                    ->disableOriginalConstructor()
+                    ->getMock();
+        $crm->method('sendRequest')
+            ->willReturn(['contacts' => []]);
+
+        $gate = new Contacts($crm);
+		$contacts = $gate->getList();
 		$this->assertNotNull($contacts);
 		foreach ($contacts as $contact) {
-			$this->assertInstanceOf('\amocrm\gates\Contacts', $contact);
+			$this->assertInstanceOf('\amocrm\entities\Contact', $contact);
 		}
 	}
 

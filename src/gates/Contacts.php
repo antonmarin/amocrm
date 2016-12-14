@@ -2,7 +2,10 @@
 
 namespace amocrm\gates;
 
+use amocrm\AmoCrm;
 use amocrm\entities\Contact;
+use amocrm\entities\ContactFactory;
+use amocrm\entities\ContactInterface;
 use amocrm\Gate;
 
 /**
@@ -13,12 +16,20 @@ use amocrm\Gate;
  */
 class Contacts extends Gate
 {
+    protected $factory;
+
     /**
      * @inheritdoc
      */
     protected function getUrl()
     {
         return 'contacts';
+    }
+
+    public function __construct(AmoCrm $crm)
+    {
+        parent::__construct($crm);
+        $this->factory = new ContactFactory();
     }
 
     /**
@@ -36,6 +47,8 @@ class Contacts extends Gate
      *
      * @param $params array массив параметров. Допустимые значения:<br/>
      * <ul>
+     * <li>if-modified-since (изменено с) - Mon, 22 Jul 2013 10:35:00.
+     *  Данные нужно передавать в формате D, d M Y H:i:s через HTTP-заголовок</li>
      * <li>limit_rows - Кол-во выбираемых строк (системное ограничение 500)</li>
      * <li>limit_offset - Оффсет выборки (с какой строки выбирать)
      *  (Работает, только при условии, что limit_rows тоже указан)</li>
@@ -47,12 +60,17 @@ class Contacts extends Gate
      *  (Можно передавать в виде массива)</li>
      * <li>type - Тип контакта: contact(по-умолчанию), company или all</li>
      * </ul>
-     * @todo создать фабрику, классы и реализовать наследование в зависимости от типа
      * @link https://developers.amocrm.ru/rest_api/contacts_list.php
-     * @return Contact[]
+     * @return ContactInterface[]
      */
-    public function getList($params = []){
-        // todo implement
+    public function getList($params = [])
+    {
+        $result = $this->getCrm()->sendRequest('GET', $this->getUrl() . '/list', $params);
+        $contacts = [];
+        foreach($result['contacts'] as $contact) {
+            $contacts[] = $this->factory->create($contact);
+        }
+        return $contacts;
     }
 
     /**
