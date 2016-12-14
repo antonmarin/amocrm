@@ -9,7 +9,7 @@ use amocrm\gates\Accounts;
  */
 class AccountsTest extends PHPUnit_Framework_TestCase
 {
-    public function testGetCurrent()
+    public function testGetCurrentShouldReturnModel()
     {
         /** @var \amocrm\AmoCrm $crm */
         $crm = $this->getMockBuilder('\amocrm\AmoCrm')
