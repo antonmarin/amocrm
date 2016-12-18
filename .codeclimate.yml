@@ -21,6 +21,7 @@ engines:
 exclude_paths:
   - tests/
   - build/
+  - vendor/
 ratings:
   paths:
     - "**.php"
