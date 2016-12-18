@@ -15,11 +15,15 @@ class ConnectionTest extends PHPUnit_Framework_TestCase
 
     /**
      * Http клиент может быть внедрен только через интерфейс HttpClientInterface
-     * @expectedException PHPUnit_Framework_Error
-     * @expectedException TypeError
      */
     public function testHttpClientInjectionOnlyHttpClient()
     {
+        if(PHP_MAJOR_VERSION > 5) {
+            $this->setExpectedException('TypeError');
+        } else {
+            $this->setExpectedException('PHPUnit_Framework_Error');
+        }
+
         /** @noinspection PhpParamsInspection */
         new Connection('subdomain', 'email@email.com', 'apiKey', []);
     }
