@@ -16,6 +16,7 @@ class ConnectionTest extends PHPUnit_Framework_TestCase
     /**
      * Http клиент может быть внедрен только через интерфейс HttpClientInterface
      * @expectedException PHPUnit_Framework_Error
+     * @expectedException TypeError
      */
     public function testHttpClientInjectionOnlyHttpClient()
     {
