@@ -15,14 +15,6 @@ class ContactsRepository extends Repository
 {
     protected $factory;
 
-    /**
-     * @inheritdoc
-     */
-    protected function getUrl()
-    {
-        return 'contacts';
-    }
-
     public function __construct(ConnectionInterface $connection)
     {
         parent::__construct($connection);
@@ -32,7 +24,7 @@ class ContactsRepository extends Repository
     /**
      * Добавление и обновление контактов
      *
-     * @param $contacts Contact[]
+     * @param $contacts ContactInterface[]
      *
      * @link https://developers.amocrm.ru/rest_api/contacts_set.php
      */
@@ -65,7 +57,7 @@ class ContactsRepository extends Repository
      */
     public function getList($params = [])
     {
-        $result   = $this->getConnection()->sendRequest('GET', $this->getUrl() . '/list', $params);
+        $result   = $this->getConnection()->sendRequest('GET', 'contacts/list', $params);
         $contacts = [];
         foreach ($result['contacts'] as $contact) {
             $contacts[] = $this->factory->create($contact);
