@@ -22,7 +22,9 @@ class Accounts extends Gate
     public function getCurrent()
     {
         $result = $this->getCrm()->sendRequest('GET', $this->getUrl().'/current');
-        return new Account($result['account']);
+        $account = new Account();
+        $this->mapper->fillEntity($account, $result['account']);
+        return $account;
     }
 
     /**

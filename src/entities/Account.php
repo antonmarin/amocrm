@@ -2,13 +2,40 @@
 
 namespace amocrm\entities;
 
-use amocrm\Entity;
-
 /**
- * Class Account
- * @package antonmarin\amocrm
+ * @package amocrm
  */
-class Account extends Entity
+class Account
 {
+    private $id;
+    private $name;
+    private $subdomain;
+    private $currency;
+    private $paidFrom;
+    private $paidTill;
 
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }

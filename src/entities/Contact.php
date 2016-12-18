@@ -2,9 +2,7 @@
 
 namespace amocrm\entities;
 
-use amocrm\Entity;
-
-class Contact extends Entity implements ContactInterface
+class Contact implements ContactInterface
 {
 
 }

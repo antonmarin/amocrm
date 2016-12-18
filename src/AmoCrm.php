@@ -12,14 +12,15 @@ use amocrm\gates\Notes;
 use amocrm\gates\Tasks;
 
 /**
- * Компонент
+ * AmoCRM Connection
  *
- * Отвечает за соединение с AmoCrm (Авторизация и отравка запросов) и получение шлюзов сущностей
+ * Отвечает за соединение с AmoCrm (Авторизация и формирование запросов) и получение шлюзов сущностей
  * Usage:
  * <pre>
  * $amocrm = new AmoCrm($subdomain, $email, $key);
  * </pre>
- * @package antonmarin\amocrm
+ *
+ * @package amocrm
  */
 class AmoCrm
 {
@@ -42,11 +43,12 @@ class AmoCrm
     public function __construct($subdomain, $email, $key)
     {
         $this->subdomain = $subdomain;
-        $this->email = $email;
-        $this->key = $key;
+        $this->email     = $email;
+        $this->key       = $key;
     }
 
-    public function getAccounts(){
+    public function getAccounts()
+    {
         return new Accounts($this);
     }
 
@@ -92,6 +94,7 @@ class AmoCrm
      * @param $url string относительный адрес ресурса
      * @param $params array данные, передаваемые в запросе
      *
+     * @todo переделать на http клиент и внеднить зависимость на него
      * @return null|array массив-ответ от CRM
      */
     public function sendRequest($method, $url, $params = null)
@@ -112,7 +115,7 @@ class AmoCrm
                 curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
                 break;
             case self::METHOD_GET:
-                $url .= '?'.http_build_query($params);
+                $url .= '?' . http_build_query($params);
                 break;
             default:
                 throw new \LogicException('Unexpected method');
@@ -121,7 +124,7 @@ class AmoCrm
         curl_setopt($curl, CURLOPT_URL, $this->getUrl() . '/' . $url);
         $result = curl_exec($curl);
 
-        $code      = (int) curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        $code      = (int)curl_getinfo($curl, CURLINFO_HTTP_CODE);
         $curlError = curl_error($curl);
         curl_close($curl);
 
@@ -137,7 +140,7 @@ class AmoCrm
         );
 
         if ($code != 200 && $code != 204) {
-            if (isset( $errors[$code] )) {
+            if (isset($errors[$code])) {
                 $curlError = $errors[$code];
             }
             throw new \RuntimeException($curlError, $code);
