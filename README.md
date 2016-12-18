@@ -14,7 +14,6 @@
 [![Issue Count](https://codeclimate.com/github/antonmarin/amocrm/badges/issue_count.svg)](https://codeclimate.com/github/antonmarin/amocrm)
 [![Test Coverage](https://codeclimate.com/github/antonmarin/amocrm/badges/coverage.svg)](https://codeclimate.com/github/antonmarin/amocrm/coverage)
 
-[![Latest Unstable Version](https://poser.pugx.org/antonmarin/amocrm/v/unstable)](https://packagist.org/packages/antonmarin/amocrm)
 [![Total Downloads](https://poser.pugx.org/antonmarin/amocrm/downloads)](https://packagist.org/packages/antonmarin/amocrm)
 [![Reference Status](https://www.versioneye.com/php/antonmarin:amocrm/reference_badge.svg)](https://www.versioneye.com/php/antonmarin:amocrm/references)
 [![License](https://poser.pugx.org/antonmarin/amocrm/license)](https://packagist.org/packages/antonmarin/amocrm)
