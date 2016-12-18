@@ -1,6 +1,6 @@
 <?php
 
-namespace amocrm\entities;
+namespace amocrm\Contact;
 
 interface ContactInterface
 {

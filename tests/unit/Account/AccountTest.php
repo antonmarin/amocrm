@@ -1,12 +1,15 @@
 <?php
 
-use amocrm\entities\Account;
+use amocrm\Account\Account;
 
+/**
+ * @package amocrm\Account
+ */
 class AccountTest extends PHPUnit_Framework_TestCase
 {
     public function testShouldBeAbleToCreateEmptyModel()
     {
         $model = new Account();
-        $this->assertInstanceOf('amocrm\entities\Account', $model);
+        $this->assertInstanceOf('amocrm\Account\Account', $model);
     }
 }

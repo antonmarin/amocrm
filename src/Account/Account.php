@@ -1,10 +1,7 @@
 <?php
 
-namespace amocrm\entities;
+namespace amocrm\Account;
 
-/**
- * @package amocrm
- */
 class Account
 {
     private $id;

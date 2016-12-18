@@ -1,28 +1,28 @@
 <?php
 
-use amocrm\gates\Accounts;
+use amocrm\Account\AccountsRepository;
 
 /**
  * Тестируем шлюз accounts
  *
- * @package antonmarin\amocrm
+ * @package amocrm\Account
  */
-class AccountsTest extends PHPUnit_Framework_TestCase
+class AccountsRepositoryTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Шлюз должен возвращать модели
      */
     public function testGetCurrentShouldReturnModel()
     {
-        /** @var \amocrm\AmoCrm $crm */
-        $crm = $this->getMockBuilder('\amocrm\AmoCrm')
+        /** @var \amocrm\Connection\Connection $crm */
+        $crm = $this->getMockBuilder('\amocrm\Connection\ConnectionInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $crm->method('sendRequest')
             ->willReturn(['account' => []]);
 
-        $accounts = new Accounts($crm);
-        $this->assertInstanceOf('\amocrm\entities\Account', $accounts->getCurrent());
+        $accounts = new AccountsRepository($crm);
+        $this->assertInstanceOf('\amocrm\Account\Account', $accounts->getCurrent());
     }
 
     /**
@@ -70,14 +70,14 @@ class AccountsTest extends PHPUnit_Framework_TestCase
             ],
             'server_time' => time(),
         ];
-        /** @var \amocrm\AmoCrm $crm */
-        $crm = $this->getMockBuilder('\amocrm\AmoCrm')
+        /** @var \amocrm\Connection\ConnectionInterface $connection */
+        $connection = $this->getMockBuilder('\amocrm\Connection\ConnectionInterface')
                     ->disableOriginalConstructor()
                     ->getMock();
-        $crm->method('sendRequest')
+        $connection->method('sendRequest')
             ->willReturn(['account' => $accountParams, 'server_time' => time()]);
 
-        $accounts = new Accounts($crm);
+        $accounts = new AccountsRepository($connection);
         $account  = $accounts->getCurrent();
         $refObject = new ReflectionObject($account);
         foreach ($refObject->getProperties() as $property) {

@@ -1,15 +1,14 @@
 <?php
 
-namespace amocrm\gates;
+namespace amocrm\Task;
 
-use amocrm\Gate;
+use amocrm\Repository;
 
 /**
- * Шлюз звонков
- *
+ * Class Tasks
  * @package antonmarin\amocrm
  */
-class Calls extends Gate
+class TaskRepository extends Repository
 {
     /**
      * Адрес шлюза

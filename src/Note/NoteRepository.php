@@ -1,14 +1,14 @@
 <?php
 
-namespace amocrm\gates;
+namespace amocrm\Note;
 
-use amocrm\Gate;
+use amocrm\Repository;
 
 /**
- * Class Leads
+ * Class Notes
  * @package antonmarin\amocrm
  */
-class Leads extends Gate
+class NoteRepository extends Repository
 {
     /**
      * Адрес шлюза

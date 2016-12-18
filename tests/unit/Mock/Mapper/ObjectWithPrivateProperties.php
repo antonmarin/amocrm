@@ -2,6 +2,9 @@
 
 namespace amocrmTest\unit\Mock\Mapper;
 
+/**
+ * @codeCoverageIgnore
+ */
 class ObjectWithPrivateProperties
 {
     private $property;

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace amocrm\entities;
+namespace amocrm\Contact;
 
 
 class ContactFactory implements ContactFactoryInterface

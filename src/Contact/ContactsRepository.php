@@ -1,12 +1,9 @@
 <?php
 
-namespace amocrm\gates;
+namespace amocrm\Contact;
 
-use amocrm\AmoCrm;
-use amocrm\entities\Contact;
-use amocrm\entities\ContactFactory;
-use amocrm\entities\ContactInterface;
-use amocrm\Gate;
+use amocrm\Connection\ConnectionInterface;
+use amocrm\Repository;
 
 /**
  * Шлюз контактов
@@ -14,7 +11,7 @@ use amocrm\Gate;
  * @link https://developers.amocrm.ru/rest_api/#contact
  * @package antonmarin\amocrm
  */
-class Contacts extends Gate
+class ContactsRepository extends Repository
 {
     protected $factory;
 
@@ -26,9 +23,9 @@ class Contacts extends Gate
         return 'contacts';
     }
 
-    public function __construct(AmoCrm $crm)
+    public function __construct(ConnectionInterface $connection)
     {
-        parent::__construct($crm);
+        parent::__construct($connection);
         $this->factory = new ContactFactory();
     }
 
@@ -36,9 +33,11 @@ class Contacts extends Gate
      * Добавление и обновление контактов
      *
      * @param $contacts Contact[]
+     *
      * @link https://developers.amocrm.ru/rest_api/contacts_set.php
      */
-    public function set($contacts){
+    public function set($contacts)
+    {
         // TODO implement
     }
 
@@ -60,16 +59,18 @@ class Contacts extends Gate
      *  (Можно передавать в виде массива)</li>
      * <li>type - Тип контакта: contact(по-умолчанию), company или all</li>
      * </ul>
+     *
      * @link https://developers.amocrm.ru/rest_api/contacts_list.php
      * @return ContactInterface[]
      */
     public function getList($params = [])
     {
-        $result = $this->getCrm()->sendRequest('GET', $this->getUrl() . '/list', $params);
+        $result   = $this->getConnection()->sendRequest('GET', $this->getUrl() . '/list', $params);
         $contacts = [];
-        foreach($result['contacts'] as $contact) {
+        foreach ($result['contacts'] as $contact) {
             $contacts[] = $this->factory->create($contact);
         }
+
         return $contacts;
     }
 
@@ -77,6 +78,7 @@ class Contacts extends Gate
      * Получить связанные сделки
      *
      * Позволяет получить
+     *
      * @param $params array массив параметров. Допустимые значения:<br/>
      * <ul>
      * <li>contacts_link / deals_link - Массив id соответственно контактов или сделок
@@ -86,9 +88,11 @@ class Contacts extends Gate
      *  limit_offset - Оффсет выборки (с какой строки выбирать) (Работает, только при условии, что limit_rows тоже указан)
      * </li>
      * </ul>
+     *
      * @link https://developers.amocrm.ru/rest_api/contacts_links.php
      */
-    public function getLinks($params = []){
+    public function getLinks($params = [])
+    {
         // todo implement
     }
 }

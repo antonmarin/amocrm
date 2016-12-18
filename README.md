@@ -4,7 +4,7 @@
 Метод, описанный в официальной документации как:
 `contacts/list`
 реализован в библиотеке как:
-`$amocrm->getContacts()->getList();`
+`$contactsRepository->getList();`
 
 [![Build Status](https://travis-ci.org/antonmarin/amocrm.svg?branch=master)](https://travis-ci.org/antonmarin/amocrm)
 [![Dependency Status](https://www.versioneye.com/php/antonmarin:amocrm/dev-master/badge)](https://www.versioneye.com/php/antonmarin:amocrm/dev-master)
@@ -22,14 +22,14 @@
 Пример использования
 --------------------
 ```
-$amocrm = new \amocrm\AmoCrm($subdomain, $email, $key);
-$list = $amocrm->getLeads()->getList();
+$connection = new \amocrm\AmoCrm($subdomain, $email, $key);
+$list = (new LeadRepository($connection))->getList();
 ```
 
 Архитектура
 -----------
-- CRM. Класс \amocrm\AmoCrm. Занимается авторизацией и отправкой запросов. 
-- Шлюзы. Наследники \amocrm\gates\Gate. Шлюзы для работы с сущностями AmoCrm. 
+- Подключение. Класс \amocrm\Connection\Connection. Занимается авторизацией и формированием запросов. 
+- Репозитории. Наследники \amocrm\Repository. Классы для работы с AmoCRM как с хранилищем. 
 Реализуют интерфейс API, указанный на [сайте](https://developers.amocrm.ru/rest_api/).
-- Модели. Наследники \amocrm\entities\Entity. Внутренние сущности. Упрощают работу. 
+- Модели. Например \amocrm\Account\Account. Внутренние сущности. Упрощают работу. 
 Возвращаются шлюзами.

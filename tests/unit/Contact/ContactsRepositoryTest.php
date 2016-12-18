@@ -1,15 +1,15 @@
 <?php
-use amocrm\gates\Contacts;
+use amocrm\Contact\ContactsRepository;
 
 /**
  * Тестируем шлюз контактов
  *
  * @package antonmarin\amocrm
  */
-class ContactsTest extends PHPUnit_Framework_TestCase
+class ContactsRepositoryTest extends PHPUnit_Framework_TestCase
 {
 	/**
-	 * @var amocrm\gates\Contacts
+	 * @var \amocrm\Contact\ContactsRepository
 	 */
 	protected $gate;
 
@@ -20,17 +20,17 @@ class ContactsTest extends PHPUnit_Framework_TestCase
 
 	public function testGetListShouldReturnModels()
 	{
-        $crm = $this->getMockBuilder('\amocrm\AmoCrm')
+        $connection = $this->getMockBuilder('\amocrm\Connection\ConnectionInterface')
                     ->disableOriginalConstructor()
                     ->getMock();
-        $crm->method('sendRequest')
+        $connection->method('sendRequest')
             ->willReturn(['contacts' => []]);
 
-        $gate = new Contacts($crm);
+        $gate = new ContactsRepository($connection);
 		$contacts = $gate->getList();
 		$this->assertNotNull($contacts);
 		foreach ($contacts as $contact) {
-			$this->assertInstanceOf('\amocrm\entities\Contact', $contact);
+			$this->assertInstanceOf('\amocrm\Contact\Contact', $contact);
 		}
 	}
 

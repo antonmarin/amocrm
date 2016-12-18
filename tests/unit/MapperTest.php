@@ -2,17 +2,17 @@
 
 namespace amocrmTest\unit;
 
-use amocrm\Mapper;
+use amocrm\ArrayMapper;
 use amocrmTest\unit\Mock\Mapper\ObjectWithPrivateProperties;
 
 class MapperTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var Mapper */
+    /** @var ArrayMapper */
     private $mapper;
 
     protected function setUp()
     {
-        $this->mapper = new Mapper();
+        $this->mapper = new ArrayMapper();
     }
 
     /**
