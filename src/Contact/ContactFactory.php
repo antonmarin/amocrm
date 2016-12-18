@@ -1,10 +1,8 @@
 <?php
 
-
 namespace amocrm\Contact;
 
-
-class ContactFactory implements ContactFactoryInterface
+class ContactFactory
 {
     /**
      * Создать модель контакта
@@ -20,8 +18,10 @@ class ContactFactory implements ContactFactoryInterface
         }
         switch ($params['type']) {
             case 'contact':
+                return new Contact();
                 break;
             case 'company':
+                return new Company();
                 break;
             default:
                 throw new \InvalidArgumentException('Type '.$params['type']. ' is not implemented');
