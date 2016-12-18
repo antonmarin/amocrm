@@ -12,6 +12,9 @@
     "autoload": {
         "psr-4": {"amocrm\\": "src/"}
     },
+    "autoload-dev": {
+        "psr-4": {"amocrmTest\\": "tests/"}
+    },
     "require": {
         "php": ">=5.4",
         "lib-curl": "^7.0"
