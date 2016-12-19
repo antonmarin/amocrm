@@ -20,7 +20,7 @@
 Пример использования
 --------------------
 ```
-$connection = new \amocrm\AmoCrm($subdomain, $email, $key);
+$connection = new \amocrm\Connection\Connection($subdomain, $email, $key);
 $list = (new LeadRepository($connection))->getList();
 ```
 
