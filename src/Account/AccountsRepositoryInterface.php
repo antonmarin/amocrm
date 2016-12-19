@@ -1,9 +1,9 @@
 <?php
+
 namespace amocrm\Account;
 
-
 /**
- * Шлюз аккаунтов
+ * Репозиторий аккаунтов
  *
  * @link https://developers.amocrm.ru/rest_api/#account
  */

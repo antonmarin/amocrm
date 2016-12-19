@@ -2,7 +2,6 @@
 
 namespace amocrm\Account;
 
-use amocrm\ArrayMapper;
 use amocrm\Repository;
 
 class AccountsRepository extends Repository implements AccountsRepositoryInterface
