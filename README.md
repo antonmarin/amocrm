@@ -1,5 +1,4 @@
-Библиотека для работы с AmoCrm
-==============================
+# Библиотека для работы с AmoCrm
 
 Главная задача библиотеки - максимальная приближенность к официальной документации.
 Метод, описанный в официальной документации как:
@@ -18,25 +17,23 @@
 [![Total Downloads](https://poser.pugx.org/antonmarin/amocrm/downloads)](https://packagist.org/packages/antonmarin/amocrm)
 [![Reference Status](https://www.versioneye.com/php/antonmarin:amocrm/reference_badge.svg)](https://www.versioneye.com/php/antonmarin:amocrm/references)
 
-Пример использования
---------------------
+## Пример использования
 
 ```
 $connection = new \amocrm\Connection\Connection($subdomain, $email, $key);
 $list = (new LeadRepository($connection))->getList();
 ```
 
-Архитектура
------------
+## Архитектура
 
-#### Подключение
+### Подключение
 
 Класс \amocrm\Connection\Connection. Занимается авторизацией и формированием запросов.
 ```
 $conneciton = new Connection($domain, $email, $key)
 ```
 
-#### Репозитории
+### Репозитории
 
 Наследники \amocrm\Repository. Классы для работы с AmoCRM как с хранилищем.
 Реализуют интерфейс API, указанный на [сайте](https://developers.amocrm.ru/rest_api/).
@@ -44,7 +41,7 @@ $conneciton = new Connection($domain, $email, $key)
 $accounts = new AccountsRepository($connection);
 ```
 
-#### Модели
+### Модели
 
 Например \amocrm\Account\Account. Внутренние сущности. 
 Упрощают работу. Возвращаются репозиториями.
