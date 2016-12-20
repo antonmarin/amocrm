@@ -31,7 +31,7 @@ $list = (new LeadRepository($connection))->getList();
 Класс \amocrm\Connection\Connection. Занимается авторизацией и формированием запросов.
 
 ```
-$conneciton = new Connection($domain, $email, $key)
+$connection = new Connection($domain, $email, $key)
 ```
 
 ### Репозитории
