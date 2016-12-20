@@ -26,10 +26,10 @@ $list = (new LeadRepository($connection))->getList();
 
 Архитектура
 -----------
-- Подключение. Класс \amocrm\Connection\Connection. 
+- Подключение. Класс \amocrm\Connection\Connection.
 Занимается авторизацией и формированием запросов.
-- Репозитории. Наследники \amocrm\Repository. 
+- Репозитории. Наследники \amocrm\Repository.
 Классы для работы с AmoCRM как с хранилищем.
 Реализуют интерфейс API, указанный на [сайте](https://developers.amocrm.ru/rest_api/).
-- Модели. Например \amocrm\Account\Account. 
+- Модели. Например \amocrm\Account\Account.
 Внутренние сущности. Упрощают работу. Возвращаются репозиториями.
