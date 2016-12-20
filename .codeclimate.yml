@@ -10,6 +10,8 @@ engines:
     enabled: true
   phpcodesniffer:
     enabled: true
+    config:
+      encoding: utf-8
   phpmd:
     enabled: true
   phan:
