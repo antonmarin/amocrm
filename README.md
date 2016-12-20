@@ -29,6 +29,7 @@ $list = (new LeadRepository($connection))->getList();
 ### Подключение
 
 Класс \amocrm\Connection\Connection. Занимается авторизацией и формированием запросов.
+
 ```
 $conneciton = new Connection($domain, $email, $key)
 ```
@@ -37,6 +38,7 @@ $conneciton = new Connection($domain, $email, $key)
 
 Наследники \amocrm\Repository. Классы для работы с AmoCRM как с хранилищем.
 Реализуют интерфейс API, указанный на [сайте](https://developers.amocrm.ru/rest_api/).
+
 ```
 $accounts = new AccountsRepository($connection);
 ```
@@ -45,6 +47,7 @@ $accounts = new AccountsRepository($connection);
 
 Например \amocrm\Account\Account. Внутренние сущности. 
 Упрощают работу. Возвращаются репозиториями.
+
 ```
 $account = (new AccountsRepository($connection))->getCurrent();
 ```
