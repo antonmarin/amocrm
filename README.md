@@ -45,7 +45,7 @@ $accounts = new AccountsRepository($connection);
 
 ### Модели
 
-Например \amocrm\Account\Account. Внутренние сущности. 
+Например \amocrm\Account\Account. Внутренние сущности.
 Упрощают работу. Возвращаются репозиториями.
 
 ```
