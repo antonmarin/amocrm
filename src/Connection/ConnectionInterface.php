@@ -6,7 +6,7 @@ namespace amocrm\Connection;
 /**
  * AmoCRM Connection
  *
- * Отвечает за соединение с AmoCrm (Авторизация и формирование запросов) и получение шлюзов сущностей
+ * Отвечает за соединение с AmoCrm (Авторизация и формирование запросов)
  * Usage:
  * <pre>
  * $amocrm = new Connection($subdomain, $email, $key);
@@ -14,7 +14,8 @@ namespace amocrm\Connection;
  * $account = $accountsRepository->getCurrent();
  * </pre>
  *
- * В качестве http клиента можно использовать приложенный адаптер Curl или другой клиент реализующий HttpClientInterface
+ * В качестве http клиента можно использовать приложенный адаптер Curl
+ * или другой клиент реализующий HttpClientInterface
  * <pre>
  * $amocrm = new Connection($subdomain, $email, $key, $httpClient);
  * </pre>
