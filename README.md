@@ -1,5 +1,6 @@
 Библиотека для работы с AmoCrm
 ==============================
+
 Главная задача библиотеки - максимальная приближенность к официальной документации.
 Метод, описанный в официальной документации как:
 `contacts/list`
@@ -19,6 +20,7 @@
 
 Пример использования
 --------------------
+
 ```
 $connection = new \amocrm\Connection\Connection($subdomain, $email, $key);
 $list = (new LeadRepository($connection))->getList();
@@ -26,6 +28,7 @@ $list = (new LeadRepository($connection))->getList();
 
 Архитектура
 -----------
+
 - Подключение. Класс \amocrm\Connection\Connection.
 Занимается авторизацией и формированием запросов.
 - Репозитории. Наследники \amocrm\Repository.
