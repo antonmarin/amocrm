@@ -3,32 +3,17 @@
 use amocrm\Account\AccountsRepository;
 
 /**
- * Тестируем шлюз accounts
+ * Тестируем репозиторий accounts
  *
  * @package amocrm\Account
+ * @coversDefaultClass amocrm\Account\AccountsRepository
  */
 class AccountsRepositoryTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Шлюз должен возвращать модели
-     */
-    public function testGetCurrentShouldReturnModel()
-    {
-        /** @var \amocrm\Connection\Connection $crm */
-        $crm = $this->getMockBuilder('\amocrm\Connection\ConnectionInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $crm->method('sendRequest')
-            ->willReturn(['account' => []]);
-
-        $accounts = new AccountsRepository($crm);
-        $this->assertInstanceOf('\amocrm\Account\Account', $accounts->getCurrent());
-    }
-
-    /**
      * Возвращаемые модели должны быть заполнены
      *
-     * @depends testGetCurrentShouldReturnModel
+     * @covers ::getCurrent
      */
     public function testGetCurrentShouldFillModel()
     {
@@ -68,8 +53,52 @@ class AccountsRepositoryTest extends PHPUnit_Framework_TestCase
                     'editable' => 'Y'
                 ],
             ],
+            'custom_fields' => [
+                'contacts' => [
+                    [
+                        'id' => 116294,
+                        'name' => 'Phone',
+                        'code' => 'PHONE',
+                        'multiple' => 'Y',
+                        'type_id' => 8,
+                        'enums' => [
+                            'FAX',
+                            'MOB',
+                            'HOME',
+                            'OTHER',
+                            'WORK',
+                            'WORKDD',
+                        ],
+                    ],
+                ],
+                'leads' => [
+                    [
+                        'id' => 484604,
+                        'name' => 'textfield',
+                        'code' => null,
+                        'multiple' => 'N',
+                        'type_id' => 1,
+                    ],
+                ],
+            ],
+            'note_types' => [
+                [
+                    'id' => 1,
+                    'name' => '',
+                    'code' => 'DEAL_CREATED',
+                    'editable' => 'N',
+                ],
+            ],
+            'task_types' => [
+                [
+                    'id' => 1,
+                    'name' => 'Call',
+                    'code' => 'CALL',
+                ],
+            ],
             'server_time' => time(),
         ];
+
         /** @var \amocrm\Connection\ConnectionInterface $connection */
         $connection = $this->getMockBuilder('\amocrm\Connection\ConnectionInterface')
                     ->disableOriginalConstructor()
@@ -79,12 +108,11 @@ class AccountsRepositoryTest extends PHPUnit_Framework_TestCase
 
         $accounts = new AccountsRepository($connection);
         $account  = $accounts->getCurrent();
-        $refObject = new ReflectionObject($account);
-        foreach ($refObject->getProperties() as $property) {
-            $property->setAccessible(true);
-            $propertyName = strtolower(preg_replace('~(?<=\\w)([A-Z])~', '_$1', $property->name));
-            $this->assertEquals($accountParams[$propertyName], $property->getValue($account));
-        }
 
+        $this->assertInstanceOf('\amocrm\Account\Account', $accounts->getCurrent());
+        $this->assertEquals($accountParams['id'], $account->getId());
+        $this->assertEquals($accountParams['name'], $account->getName());
+        $this->assertEquals($accountParams['subdomain'], $account->getSubdomain());
+        $this->markTestIncomplete('еще не вcе свойства протестированы');
     }
 }
